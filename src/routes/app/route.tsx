@@ -1,7 +1,7 @@
 import { createFileRoute, Navigate, Outlet } from '@tanstack/react-router'
 import { useAuth } from '@clerk/react'
-import { Header } from '#/components/header.tsx'
-import { Footer } from '@/components/footer.tsx'
+import { AppHeader } from '#/components/AppHeader'
+import { AppFooter } from '#/components/AppFooter'
 
 export const Route = createFileRoute('/app')({ component: AppLayout })
 
@@ -13,9 +13,9 @@ function AppLayout() {
 
   return (
     <div className="flex flex-col justify-between min-h-screen w-full">
-      <Header />
+      <AppHeader />
       <Outlet />
-      <Footer />
+      <AppFooter />
     </div>
   )
 }

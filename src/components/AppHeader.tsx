@@ -1,21 +1,29 @@
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
 import { Button } from '#/components/ui/button.tsx'
 import { Link } from '@tanstack/react-router'
+import { SidebarTrigger } from '#/components/ui/sidebar'
+import { CircleHelp } from 'lucide-react'
 
-export function Header() {
+export function AppHeader() {
   return (
     <>
       <header className="sticky top-0 border-b p-4">
         <div className="flex justify-between">
           <div className="flex items-center gap-3">
-            <img
-              className="max-w-10 max-h-10"
-              src={'/kfc-logo.jpg'}
-              alt="KFC logo"
-            />
-          </div>
+            <SidebarTrigger />
 
+            <div className="flex items-baseline gap-1.5 text-sm">
+              <span className="font-medium">Kambarys 204</span>
+              <span className="text-muted-foreground text-xs">• Didlaukio g. 59</span>
+            </div>
+          </div>
           <div>
+            <Button variant="ghost">
+              <CircleHelp />
+              <span className="hidden sm:inline">Pagalba</span>
+            </Button>
+
+
             <Show when="signed-out">
               <div className="w-full h-full flex items-center gap-2">
                 <SignInButton>
