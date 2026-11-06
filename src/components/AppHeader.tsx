@@ -14,7 +14,9 @@ export function AppHeader() {
 
             <div className="flex items-baseline gap-1.5 text-sm">
               <span className="font-medium">Kambarys 204</span>
-              <span className="text-muted-foreground text-xs">• Didlaukio g. 59</span>
+              <span className="text-muted-foreground text-xs">
+                • Didlaukio g. 59
+              </span>
             </div>
           </div>
           <div>
@@ -22,7 +24,6 @@ export function AppHeader() {
               <CircleHelp />
               <span className="hidden sm:inline">Pagalba</span>
             </Button>
-
 
             <Show when="signed-out">
               <div className="w-full h-full flex items-center gap-2">

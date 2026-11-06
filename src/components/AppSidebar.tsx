@@ -1,5 +1,15 @@
-import { Link } from "@tanstack/react-router";
-import { Sidebar, SidebarHeader, SidebarContent, SidebarGroup, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroupLabel, SidebarFooter } from "./ui/sidebar";
+import { Link } from '@tanstack/react-router'
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarGroup,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarGroupLabel,
+  SidebarFooter,
+} from './ui/sidebar'
 import {
   Boxes,
   // Building2,
@@ -11,20 +21,19 @@ import {
 } from 'lucide-react'
 
 export default function AppSidebar() {
-    const mainNav = [
+  const mainNav = [
     { label: 'Apžvalga', icon: LayoutDashboard, to: '/' },
     { label: 'Pridėti pirkinį', icon: ShoppingCart, to: '/app' },
     { label: 'Atnaujinti kiekį', icon: Boxes, to: '/app' },
-    ] as const
+  ] as const
 
-    const spacesNav = [
+  const spacesNav = [
     // { label: 'Blokas B', icon: Building2, to: '/app' },
     { label: 'Kambarys 204', icon: DoorOpen, to: '/app' },
     { label: 'Kambariai', icon: Plus, to: '/app' },
-    ] as const
+  ] as const
 
-
-    return (
+  return (
     <Sidebar>
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-1.5">
