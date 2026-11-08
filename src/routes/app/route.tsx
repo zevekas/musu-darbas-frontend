@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { AppHeader } from '#/components/AppHeader'
 import { AppFooter } from '#/components/AppFooter'
 import AppSidebar from '#/components/AppSidebar'
-import { SidebarProvider, SidebarInset } from '#/components/ui/sidebar'
+import { SidebarInset, SidebarProvider } from '#/components/ui/sidebar'
 
 export const Route = createFileRoute('/app')({ component: AppLayout })
 
@@ -25,7 +25,7 @@ function AppLayout() {
 
   return (
     <div className="flex flex-col justify-between min-h-screen w-full">
-      <Header />
+      <AppHeader />
       {!data.username ? (
         <UserDataForm
           submitting={saveUserData.isPending}
@@ -56,7 +56,7 @@ function AppLayout() {
           </SidebarInset>
         </SidebarProvider>
       )}
-      <Footer />
+      <AppFooter />
     </div>
   )
 }
