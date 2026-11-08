@@ -1,10 +1,12 @@
 import { createFileRoute, Navigate, Outlet } from '@tanstack/react-router'
 import { useAuth } from '@clerk/react'
-import { Header } from '#/components/header.tsx'
-import { Footer } from '@/components/footer.tsx'
 import { useUserData } from '#/hooks/use-user-data.ts'
 import { UserDataForm } from '#/components/app/UserDataForm.tsx'
 import { useState } from 'react'
+import { AppHeader } from '#/components/AppHeader'
+import { AppFooter } from '#/components/AppFooter'
+import AppSidebar from '#/components/AppSidebar'
+import { SidebarProvider, SidebarInset } from '#/components/ui/sidebar'
 
 export const Route = createFileRoute('/app')({ component: AppLayout })
 
@@ -43,7 +45,16 @@ function AppLayout() {
           }}
         />
       ) : (
-        <Outlet />
+        <SidebarProvider>
+        <AppSidebar />
+        <SidebarInset className="min-h-svh">
+          <AppHeader />
+          <div className="flex-1 p-4">
+            <Outlet />
+          </div>
+          <AppFooter />
+        </SidebarInset>
+      </SidebarProvider>
       )}
       <Footer />
     </div>
