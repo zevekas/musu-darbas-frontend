@@ -46,15 +46,15 @@ function AppLayout() {
         />
       ) : (
         <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset className="min-h-svh">
-          <AppHeader />
-          <div className="flex-1 p-4">
-            <Outlet />
-          </div>
-          <AppFooter />
-        </SidebarInset>
-      </SidebarProvider>
+          <AppSidebar />
+          <SidebarInset className="min-h-svh">
+            <AppHeader />
+            <div className="flex-1 p-4">
+              <Outlet />
+            </div>
+            <AppFooter />
+          </SidebarInset>
+        </SidebarProvider>
       )}
       <Footer />
     </div>
