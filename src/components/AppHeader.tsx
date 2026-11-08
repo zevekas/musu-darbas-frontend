@@ -10,14 +10,15 @@ export function AppHeader() {
       <header className="sticky top-0 border-b p-4">
         <div className="flex justify-between">
           <div className="flex items-center gap-3">
-            <SidebarTrigger />
-
-            <div className="flex items-baseline gap-1.5 text-sm">
-              <span className="font-medium">Kambarys 204</span>
-              <span className="text-muted-foreground text-xs">
-                • Didlaukio g. 59
-              </span>
-            </div>
+            <Show when="signed-in">
+              <SidebarTrigger />
+              <div className="flex items-baseline gap-1.5 text-sm">
+                <span className="font-medium">Kambarys 204</span>
+                <span className="text-muted-foreground text-xs">
+                  • Didlaukio g. 59
+                </span>
+              </div>
+            </Show>
           </div>
           <div>
             <Button variant="ghost">
