@@ -1,0 +1,43 @@
+{
+  "language": { "change": "Change language" },
+  "nav": {
+    "overview": "Overview",
+    "addPurchase": "Add purchase",
+    "updateStock": "Update quantity",
+    "room": "Room {{room}}",
+    "header": {
+      "help": "Help",
+      "dashboard": "Dashboard"
+    },
+    "sidebar": {
+      "yourSpaces": "Your spaces",
+      "rooms": "Rooms",
+      "groupSettings": "Group settings"
+    },
+    "footer": {
+      "privacyPolicy": "Privacy Policy",
+      "termsAndConditions": "Terms & conditions"
+    }
+  },
+  "auth": {
+    "register": "Register",
+    "login": "Login",
+    "userDataForm": {
+      "title": "Finish setting up your profile",
+      "description": "Choose a username and tell us where you live.",
+      "username": "Username",
+      "usernamePlaceholder": "Name Surname",
+      "dorm": "Dormitory",
+      "dormPlaceholder": "Choose your dormitory",
+      "roomNumber": "Room number",
+      "roomNumberPlaceholder": "e.g. 123A",
+      "button": {
+        "saving": "Saving...",
+        "continue": "Continue"
+      }
+    }
+  },
+  "dash": {
+    "placeholderContent": "Welcome to your dashboard!"
+  }
+}

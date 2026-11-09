@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useDorms } from '#/hooks/use-dorms.ts'
+import { useTranslation } from 'react-i18next'
 
 export type UserDataValues = {
   username: string
@@ -39,6 +40,7 @@ export function UserDataForm({
   const [username, setUsername] = useState('')
   const [dormId, setDormId] = useState('')
   const [roomNumber, setRoomNumber] = useState('')
+  const { t } = useTranslation()
 
   const { data: dorms } = useDorms()
 
@@ -56,33 +58,37 @@ export function UserDataForm({
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <div className="flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <form onSubmit={handleSubmit}>
           <CardHeader>
-            <CardTitle>Finish setting up your profile</CardTitle>
+            <CardTitle>{t('auth.userDataForm.title')}</CardTitle>
             <CardDescription>
-              Choose a username and tell us where you live.
+              {t('auth.userDataForm.description')}
             </CardDescription>
           </CardHeader>
 
           <CardContent className="mt-6 space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username">
+                {t('auth.userDataForm.username')}
+              </Label>
               <Input
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 autoComplete="off"
-                placeholder="e.g. Petriukas"
+                placeholder={t('auth.userDataForm.usernamePlaceholder')}
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="dorm">Dorm</Label>
+              <Label htmlFor="dorm">{t('auth.userDataForm.dorm')}</Label>
               <Select value={dormId} onValueChange={setDormId}>
                 <SelectTrigger id="dorm" className="w-full">
-                  <SelectValue placeholder="Select your dorm" />
+                  <SelectValue
+                    placeholder={t('auth.userDataForm.dormPlaceholder')}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {dorms?.dorms.map((d) => (
@@ -95,13 +101,13 @@ export function UserDataForm({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="room">Room number</Label>
+              <Label htmlFor="room">{t('auth.userDataForm.roomNumber')}</Label>
               <Input
                 id="room"
                 value={roomNumber}
                 onChange={(e) => setRoomNumber(e.target.value)}
                 autoComplete="off"
-                placeholder="e.g. 412"
+                placeholder={t('auth.userDataForm.roomNumberPlaceholder')}
               />
             </div>
 
@@ -114,7 +120,9 @@ export function UserDataForm({
               className="w-full"
               disabled={!canSubmit || submitting}
             >
-              {submitting ? 'Saving...' : 'Continue'}
+              {submitting
+                ? t('auth.userDataForm.button.saving')
+                : t('auth.userDataForm.button.continue')}
             </Button>
           </CardFooter>
         </form>
