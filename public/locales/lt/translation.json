@@ -1,0 +1,43 @@
+{
+  "language": { "change": "Pakeisti kalbą" },
+  "nav": {
+    "overview": "Apžvalga",
+    "addPurchase": "Pridėti pirkinį",
+    "updateStock": "Atnaujinti kiekį",
+    "room": "Kambarys {{room}}",
+    "header": {
+      "help": "Pagalba",
+      "dashboard": "Puslapis"
+    },
+    "sidebar": {
+      "yourSpaces": "Jūsų erdvės",
+      "rooms": "Kambariai",
+      "groupSettings": "Grupės nustatymai"
+    },
+    "footer": {
+      "privacyPolicy": "Privatumo politika",
+      "termsAndConditions": "Sąlygos"
+    }
+  },
+  "auth": {
+    "register": "Registruotis",
+    "login": "Prisijungti",
+    "userDataForm": {
+      "title": "Baikite kurti savo paskyrą",
+      "description": "Pasirinkite naudotojo vardą ir nurodykite jūsų bendrabutį.",
+      "username": "Naudotojo vardas",
+      "usernamePlaceholder": "Vardenis Pavardenis",
+      "dorm": "Bendrabutis",
+      "dormPlaceholder": "Pasirinkite bendrabutį",
+      "roomNumber": "Kambario numeris",
+      "roomNumberPlaceholder": "pvz. 123A",
+      "button": {
+        "saving": "Saugoma...",
+        "continue": "Tęsti"
+      }
+    }
+  },
+  "dash": {
+    "placeholderContent": "Sveiki atvykę į puslapį!"
+  }
+}

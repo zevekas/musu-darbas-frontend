@@ -4,9 +4,10 @@ import { useUserData } from '#/hooks/use-user-data.ts'
 import { UserDataForm } from '#/components/app/UserDataForm.tsx'
 import { useState } from 'react'
 import { AppHeader } from '#/components/app/AppHeader'
-import { Footer } from '#/components/Footer'
 import AppSidebar from '#/components/app/AppSidebar'
 import { SidebarInset, SidebarProvider } from '#/components/ui/sidebar'
+import { Header } from '#/components/Header'
+import { Footer } from '#/components/Footer'
 
 export const Route = createFileRoute('/app')({ component: AppLayout })
 
@@ -26,23 +27,27 @@ function AppLayout() {
   return (
     <div className="flex flex-col justify-between min-h-screen w-full">
       {!data.username ? (
-        <UserDataForm
-          submitting={saveUserData.isPending}
-          error={error}
-          onSubmit={(values) => {
-            setError(null)
-            saveUserData.mutate(
-              {
-                username: values.username,
-                dorm: values.dormId,
-                room: values.roomNumber,
-              },
-              {
-                onError: () => setError('Could not save'),
-              },
-            )
-          }}
-        />
+        <>
+          <Header />
+          <UserDataForm
+            submitting={saveUserData.isPending}
+            error={error}
+            onSubmit={(values) => {
+              setError(null)
+              saveUserData.mutate(
+                {
+                  username: values.username,
+                  dorm: values.dormId,
+                  room: values.roomNumber,
+                },
+                {
+                  onError: () => setError('Could not save'),
+                },
+              )
+            }}
+          />
+          <Footer />
+        </>
       ) : (
         <SidebarProvider>
           <AppSidebar />

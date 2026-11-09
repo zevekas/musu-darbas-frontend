@@ -19,18 +19,20 @@ import {
   Settings,
   ShoppingCart,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export default function AppSidebar() {
+  const { t } = useTranslation()
   const mainNav = [
-    { label: 'Apžvalga', icon: LayoutDashboard, to: '/' },
-    { label: 'Pridėti pirkinį', icon: ShoppingCart, to: '/app' },
-    { label: 'Atnaujinti kiekį', icon: Boxes, to: '/app' },
+    { label: t('nav.overview'), icon: LayoutDashboard, to: '/' },
+    { label: t('nav.addPurchase'), icon: ShoppingCart, to: '/app' },
+    { label: t('nav.updateStock'), icon: Boxes, to: '/app' },
   ] as const
 
   const spacesNav = [
     // { label: 'Blokas B', icon: Building2, to: '/app' },
-    { label: 'Kambarys 204', icon: DoorOpen, to: '/app' },
-    { label: 'Kambariai', icon: Plus, to: '/app' },
+    { label: t('nav.room', { room: 204 }), icon: DoorOpen, to: '/app' },
+    { label: t('nav.sidebar.rooms'), icon: Plus, to: '/app' },
   ] as const
 
   return (
@@ -62,7 +64,7 @@ export default function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Jūsų erdvės</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('nav.sidebar.yourSpaces')}</SidebarGroupLabel>
           <SidebarMenu>
             {spacesNav.map((item) => (
               <SidebarMenuItem key={item.label}>
@@ -84,7 +86,7 @@ export default function AppSidebar() {
             <SidebarMenuButton asChild>
               <Link to="/app">
                 <Settings />
-                <span>Grupės nustatymai</span>
+                <span>{t('nav.sidebar.groupSettings')}</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

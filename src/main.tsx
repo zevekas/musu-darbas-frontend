@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
+import './i18n'
+import { Suspense } from 'react'
 
 const router = createRouter({
   routeTree,
@@ -18,5 +20,9 @@ const rootElement = document.getElementById('app')!
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
-  root.render(<RouterProvider router={router} />)
+  root.render(
+    <Suspense fallback={null}>
+      <RouterProvider router={router} />
+    </Suspense>,
+  )
 }
