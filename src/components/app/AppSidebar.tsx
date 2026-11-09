@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarGroupLabel,
   SidebarFooter,
-} from './ui/sidebar'
+} from '../ui/sidebar'
 import {
   Boxes,
   // Building2,

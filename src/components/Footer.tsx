@@ -1,6 +1,6 @@
 import { Button } from '#/components/ui/button'
 
-export function AppFooter() {
+export function Footer() {
   return (
     <>
       <footer className="text-muted-foreground border-t px-4 py-2 text-xs">

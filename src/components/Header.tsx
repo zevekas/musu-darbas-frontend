@@ -1,33 +1,25 @@
+import type { ReactNode } from 'react'
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
 import { Button } from '#/components/ui/button.tsx'
 import { Link } from '@tanstack/react-router'
-import { SidebarTrigger } from '#/components/ui/sidebar'
-import { CircleHelp } from 'lucide-react'
 
-export function AppHeader() {
+type HeaderProps = {
+  /** Header left side content */
+  children?: ReactNode
+  /** Header right side content (before auth) */
+  actions?: ReactNode
+}
+
+export function Header({children, actions} : HeaderProps) {
   return (
-    <>
-      <header className="sticky top-0 border-b p-4">
-        <div className="flex justify-between">
+      <header className="sticky top-0 border-b p-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <Show when="signed-in">
-              <SidebarTrigger />
-              <div className="flex items-baseline gap-1.5 text-sm">
-                <span className="font-medium">Kambarys 204</span>
-                <span className="text-muted-foreground text-xs">
-                  • Didlaukio g. 59
-                </span>
-              </div>
-            </Show>
+            {children}
           </div>
-          <div>
-            <Button variant="ghost">
-              <CircleHelp />
-              <span className="hidden sm:inline">Pagalba</span>
-            </Button>
-
+          <div className="flex items-center gap-2.5">
+            {actions}
             <Show when="signed-out">
-              <div className="w-full h-full flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <SignInButton>
                   <Button variant={'outline'}>Prisijungti</Button>
                 </SignInButton>
@@ -37,7 +29,7 @@ export function AppHeader() {
               </div>
             </Show>
             <Show when="signed-in">
-              <div className="w-full h-full flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5">
                 <Button variant={'outline'}>
                   <Link to="/app">Puslapis</Link>
                 </Button>
@@ -54,8 +46,6 @@ export function AppHeader() {
               </div>
             </Show>
           </div>
-        </div>
       </header>
-    </>
   )
 }
