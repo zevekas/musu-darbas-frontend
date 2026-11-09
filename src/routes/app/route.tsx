@@ -3,9 +3,9 @@ import { useAuth } from '@clerk/react'
 import { useUserData } from '#/hooks/use-user-data.ts'
 import { UserDataForm } from '#/components/app/UserDataForm.tsx'
 import { useState } from 'react'
-import { AppHeader } from '#/components/AppHeader'
-import { AppFooter } from '#/components/AppFooter'
-import AppSidebar from '#/components/AppSidebar'
+import { AppHeader } from '#/components/app/AppHeader'
+import { Footer } from '#/components/Footer'
+import AppSidebar from '#/components/app/AppSidebar'
 import { SidebarInset, SidebarProvider } from '#/components/ui/sidebar'
 
 export const Route = createFileRoute('/app')({ component: AppLayout })
@@ -25,7 +25,6 @@ function AppLayout() {
 
   return (
     <div className="flex flex-col justify-between min-h-screen w-full">
-      <AppHeader />
       {!data.username ? (
         <UserDataForm
           submitting={saveUserData.isPending}
@@ -52,11 +51,10 @@ function AppLayout() {
             <div className="flex-1 p-4">
               <Outlet />
             </div>
-            <AppFooter />
+            <Footer />
           </SidebarInset>
         </SidebarProvider>
       )}
-      <AppFooter />
     </div>
   )
 }
