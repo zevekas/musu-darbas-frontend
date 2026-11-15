@@ -39,5 +39,31 @@
   },
   "dash": {
     "placeholderContent": "Welcome to your dashboard!"
+  },
+  "productForm": {
+    "title": "Create product type",
+    "description": "Enter the information about the new purchase.",
+    "mainInformation": "Main information",
+    "name": "Name",
+    "namePlaceholder": "Product name",
+    "category": "Category",
+    "selectCategory": "Select a category",
+    "categories": {
+      "food": "Food",
+      "drinks": "Drinks",
+      "cleaning": "Cleaning supplies",
+      "hygiene": "Hygiene",
+      "other": "Other"
+    },
+    "unit": "Unit name",
+    "unitPlaceholder": "E.g., pcs, kg, l",
+    "photo": "Photo",
+    "photoAlt": "Product photo",
+    "photoOptional": "Photo (optional)",
+    "uploadPhoto": "Upload a product photo",
+    "removePhoto": "Remove photo",
+    "cancel": "Cancel",
+    "create": "Create product type",
+    "requiredFields": "* Required fields"
   }
 }
