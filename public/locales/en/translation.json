@@ -39,5 +39,18 @@
   },
   "dash": {
     "placeholderContent": "Welcome to your dashboard!"
+  },
+  "home": {
+    "title": "Shared supplies and expenses",
+    "description": "Track supplies, record purchases and split expenses",
+    "steps": {
+      "title": "How to get started",
+      "createAccount": "Create an account",
+      "joinBlock": "Join a room or block",
+      "manageSupplies": "Manage supplies and expenses"
+    },
+    "demo": {
+      "alt": "Example of shared supplies and expenses"
+    }
   }
 }
