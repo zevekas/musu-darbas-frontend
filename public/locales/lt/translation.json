@@ -39,5 +39,28 @@
   },
   "dash": {
     "placeholderContent": "Sveiki atvykę į puslapį!"
+  },
+  "productForm": {
+    "title": "Sukurti prekės tipą",
+    "description": "Įveskite naujo pirkinio informaciją.",
+    "mainInformation": "Pagrindinė informacija",
+    "name": "Pavadinimas",
+    "namePlaceholder": "Prekės pavadinimas",
+    "countingQuestion": "Is the product counted by units?",
+    "countingQuestion": "Ar prekė skaičiuojama vienetais?",
+    "countable": "Skaičiuojama",
+    "countableDescription": "Pvz. buteliai, rulonai, vienetai",
+    "notCountable": "Neskaičiuojama",
+    "notCountableDescription": "Pvz. sveriama ar pilstoma prekė",
+    "unit": "Vieneto pavadinimas",
+    "unitPlaceholder": "Pvz., vnt., kg, l",
+    "photo": "Nuotrauka",
+    "photoAlt": "Prekės nuotrauka",
+    "photoOptional": "Nuotrauka (neprivaloma)",
+    "uploadPhoto": "Įkelkite prekės nuotrauką",
+    "removePhoto": "Pašalinti nuotrauką",
+    "cancel": "Atšaukti",
+    "create": "Sukurti prekės tipą",
+    "requiredFields": "* Privalomi laukai"
   }
 }
