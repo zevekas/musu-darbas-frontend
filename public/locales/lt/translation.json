@@ -1,7 +1,7 @@
 {
   "language": { "change": "Pakeisti kalbą" },
   "nav": {
-    "overview": "Apžvalga",
+    "dashboard": "Apžvalga",
     "addPurchase": "Pridėti pirkinį",
     "updateStock": "Atnaujinti kiekį",
     "room": "Kambarys {{room}}",
@@ -22,22 +22,40 @@
   "auth": {
     "register": "Registruotis",
     "login": "Prisijungti",
-    "userDataForm": {
-      "title": "Baikite kurti savo paskyrą",
-      "description": "Pasirinkite naudotojo vardą ir nurodykite jūsų bendrabutį.",
+    "accountButton": {
+      "profile": "Mano profilis"
+    },
+    "profile": {
+      "description": "Pasirinkite naudotojo vardą ir nurodykite jūsų bendrabutį bei kambarį.",
       "username": "Naudotojo vardas",
       "usernamePlaceholder": "Vardenis Pavardenis",
       "dorm": "Bendrabutis",
       "dormPlaceholder": "Pasirinkite bendrabutį",
       "roomNumber": "Kambario numeris",
       "roomNumberPlaceholder": "pvz. 123A",
-      "button": {
-        "saving": "Saugoma...",
-        "continue": "Tęsti"
+      "buttonSaving": "Saugoma...",
+      "onboarding": {
+        "title": "Baikite kurti savo paskyrą",
+        "button": {
+          "continue": "Tęsti"
+        }
+      },
+      "edit": {
+        "title": "Atnaujinkite profilio duomenis",
+        "back": "Atgal į puslapį",
+        "saveError": "Išaugant jūsų profilio duomenis įvyko klaida. Bandykite dar kartą.",
+        "saved": "Jūsų profilio duomenys sėkmingai pakeisti ir išsaugoti!",
+        "button": {
+          "save": "Išsaugoti duomenis"
+        }
       }
     }
   },
   "dash": {
     "placeholderContent": "Sveiki atvykę į puslapį!"
+  },
+  "common": {
+    "loading": "Kraunama...",
+    "error": "Klaida"
   }
 }
