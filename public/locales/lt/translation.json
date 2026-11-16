@@ -39,5 +39,19 @@
   },
   "dash": {
     "placeholderContent": "Sveiki atvykę į puslapį!"
+  },
+  "home": {
+    "title": "Bendros atsargos ir išlaidos",
+    "description": "Sekite atsargas, registruokite pirkinius ir dalykitės išlaidomis",
+    "steps": {
+      "title": "Kaip pradėti",
+      "createAccount": "Sukurkite paskyrą",
+      "joinBlock": "Prisijunkite prie kambario ar bloko",
+      "manageSupplies": "Tvarkykite atsargas ir išlaidas"
+    },
+    "demo": {
+      "alt": "Bendrų atsargų ir išlaidų pavyzdys"
+    },
+    "dashboard": "Eiti į puslapį"
   }
 }
