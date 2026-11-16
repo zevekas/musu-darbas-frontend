@@ -4,6 +4,7 @@
     "overview": "Overview",
     "addPurchase": "Add purchase",
     "updateStock": "Update quantity",
+    "newProduct": "New product",
     "room": "Room {{room}}",
     "header": {
       "help": "Help",
@@ -39,5 +40,27 @@
   },
   "dash": {
     "placeholderContent": "Welcome to your dashboard!"
+  },
+  "productForm": {
+    "title": "Create product type",
+    "description": "Enter the information about the new purchase.",
+    "mainInformation": "Main information",
+    "name": "Name",
+    "namePlaceholder": "Product name",
+    "countingQuestion": "Is the product counted by units?",
+    "countable": "Countable",
+    "countableDescription": "E.g. bottles, rolls, individual items",
+    "notCountable": "Not countable",
+    "notCountableDescription": "E.g. products sold by weight or volume",
+    "unit": "Unit name",
+    "unitPlaceholder": "E.g., pcs, kg, l",
+    "photo": "Photo",
+    "photoAlt": "Product photo",
+    "photoOptional": "Photo (optional)",
+    "uploadPhoto": "Upload a product photo",
+    "removePhoto": "Remove photo",
+    "cancel": "Cancel",
+    "create": "Create product type",
+    "requiredFields": "* Required fields"
   }
 }
