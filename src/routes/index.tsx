@@ -14,7 +14,7 @@ function Home() {
     <div className="flex flex-col justify-between min-h-screen">
       <Header />
 
-      <main className="bg-muted/40 px-6 py-10 md:px-12">
+      <main className="flex flex-1 flex-col justify-center bg-muted/40 px-6 py-10 md:px-12">
         <section className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
             <h1 className="max-w-xs text-4xl font-normal leading-tight">
@@ -54,7 +54,7 @@ function Home() {
         <section className="mt-20 bg-primary/10 p-6">
           <h2 className="text-lg font-normal">{t('home.steps.title')}</h2>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-8 flex flex-col gap-6 md:flex-row md:justify-between">
             <div className="flex items-center gap-3">
               <span className="bg-background px-2 py-1 text-xs font-medium text-primary">
                 1
