@@ -1,5 +1,5 @@
-import { SignInButton, SignUpButton } from '@clerk/react'
-import { createFileRoute } from '@tanstack/react-router'
+import { SignInButton, SignUpButton, useAuth } from '@clerk/react'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { Header } from '#/components/Header'
 import { Footer } from '#/components/Footer'
@@ -9,6 +9,7 @@ export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   const { t, i18n } = useTranslation()
+  const { isSignedIn, isLoaded } = useAuth()
 
   return (
     <div className="flex flex-col justify-between min-h-screen">
@@ -25,17 +26,26 @@ function Home() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-5">
-              <SignUpButton>
-                <Button size="lg" className="min-w-36">
-                  {t('auth.register')}
-                </Button>
-              </SignUpButton>
+              {isLoaded &&
+                (isSignedIn ? (
+                  <Button asChild size="lg" className="min-w-36">
+                    <Link to="/app">{t('home.dashboard')}</Link>
+                  </Button>
+                ) : (
+                  <>
+                    <SignUpButton>
+                      <Button size="lg" className="min-w-36">
+                        {t('auth.register')}
+                      </Button>
+                    </SignUpButton>
 
-              <SignInButton>
-                <Button variant="outline" size="lg" className="min-w-36">
-                  {t('auth.login')}
-                </Button>
-              </SignInButton>
+                    <SignInButton>
+                      <Button variant="outline" size="lg" className="min-w-36">
+                        {t('auth.login')}
+                      </Button>
+                    </SignInButton>
+                  </>
+                ))}
             </div>
           </div>
 
