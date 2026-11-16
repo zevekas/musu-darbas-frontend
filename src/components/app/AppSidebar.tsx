@@ -25,7 +25,7 @@ export default function AppSidebar() {
   const { t } = useTranslation()
   const mainNav = [
     { label: t('nav.overview'), icon: LayoutDashboard, to: '/' },
-    {label: t('nav.addPurchase'), icon: ShoppingCart, to: '/app',},
+    { label: t('nav.addPurchase'), icon: ShoppingCart, to: '/app' },
     { label: t('nav.updateStock'), icon: Boxes, to: '/app' },
     { label: t('nav.newProduct'), icon: Plus, to: '/app/create-product' },
   ] as const
