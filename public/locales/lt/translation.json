@@ -4,8 +4,8 @@
     "overview": "Apžvalga",
     "addPurchase": "Pridėti pirkinį",
     "updateStock": "Atnaujinti kiekį",
-    "room": "Kambarys {{room}}",
     "newProduct": "Naujas produktas",
+    "room": "Kambarys {{room}}",
     "header": {
       "help": "Pagalba",
       "dashboard": "Puslapis"
