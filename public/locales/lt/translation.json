@@ -5,6 +5,7 @@
     "addPurchase": "Pridėti pirkinį",
     "updateStock": "Atnaujinti kiekį",
     "room": "Kambarys {{room}}",
+    "newProduct": "Naujas produktas",
     "header": {
       "help": "Pagalba",
       "dashboard": "Puslapis"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 import type { FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -14,7 +15,10 @@ interface ProductCreationProps {
   onCreate?: (product: Product) => void
 }
 
-export default function ProductCreationForm({
+export const Route = createFileRoute('/app/create-product')({
+  component: CreateProduct,
+})
+export default function CreateProduct({
   onCreate,
 }: ProductCreationProps) {
   const { t } = useTranslation()

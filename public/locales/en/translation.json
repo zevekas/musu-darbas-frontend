@@ -4,6 +4,7 @@
     "overview": "Overview",
     "addPurchase": "Add purchase",
     "updateStock": "Update quantity",
+    "newProduct": "New product",
     "room": "Room {{room}}",
     "header": {
       "help": "Help",
