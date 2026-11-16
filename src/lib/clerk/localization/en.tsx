@@ -1,4 +1,4 @@
-import type { LocalizationResource } from '@clerk/shared/types';
+import type { LocalizationResource } from '@clerk/shared/types'
 
 export const clerkLocalizationEN: LocalizationResource = {
   userButton: {

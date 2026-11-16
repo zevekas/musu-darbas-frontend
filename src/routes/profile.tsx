@@ -2,10 +2,10 @@ import { useAuth } from '@clerk/react'
 import { useTranslation } from 'react-i18next'
 import { createFileRoute, Navigate, Link } from '@tanstack/react-router'
 import { EditUserDataForm } from '#/components/app/UserDataForm'
-import { Header } from '#/components/Header';
-import { Footer } from '#/components/Footer';
+import { Header } from '#/components/Header'
+import { Footer } from '#/components/Footer'
 import { useState } from 'react'
-import { useUserData } from '#/hooks/use-user-data';
+import { useUserData } from '#/hooks/use-user-data'
 
 export const Route = createFileRoute('/profile')({
   component: RouteComponent,
@@ -14,11 +14,11 @@ export const Route = createFileRoute('/profile')({
 function RouteComponent() {
   const { t } = useTranslation()
   const { isLoaded, isSignedIn } = useAuth()
-  
+
   if (!isLoaded) return <div>{t('common.loading')}</div>
   if (!isSignedIn) return <Navigate to="/" />
 
-  return <ProfilePage/>
+  return <ProfilePage />
 }
 
 function ProfilePage() {
@@ -71,5 +71,5 @@ function ProfilePage() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }

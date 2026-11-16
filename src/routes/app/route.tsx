@@ -30,7 +30,7 @@ function AppLayout() {
         <>
           <Header />
           <UserDataForm
-            mode='edit'
+            mode="edit"
             submitting={saveUserData.isPending}
             error={error}
             onSubmit={(values) => {

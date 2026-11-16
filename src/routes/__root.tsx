@@ -28,7 +28,11 @@ function RootComponent() {
     <>
       <ClerkProvider
         publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}
-        localization={i18n.resolvedLanguage?.startsWith('en') ? clerkLocalizationEN : clerkLocalizationLT}
+        localization={
+          i18n.resolvedLanguage?.startsWith('en')
+            ? clerkLocalizationEN
+            : clerkLocalizationLT
+        }
       >
         <ApiProvider>
           <QueryClientProvider client={queryClient}>

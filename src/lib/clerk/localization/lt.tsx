@@ -1,4 +1,4 @@
-import type { LocalizationResource } from '@clerk/shared/types';
+import type { LocalizationResource } from '@clerk/shared/types'
 
 export const clerkLocalizationLT: LocalizationResource = {
   userButton: {
@@ -11,5 +11,5 @@ export const clerkLocalizationLT: LocalizationResource = {
     label__accountActions: 'Paskyros nustatymai',
     label__activeSessions: 'Aktyvios sesijos',
     label__userButtonPopover: 'Paskyros langas',
-  }
+  },
 }

@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 import {
   Card,
   CardContent,
@@ -48,7 +49,6 @@ const LABELS = {
   },
 } as const
 
-
 export function EditUserDataForm(props: EditUserDataFormProps) {
   const { t } = useTranslation()
   const { getUserData } = useUserData()
@@ -72,7 +72,6 @@ export function EditUserDataForm(props: EditUserDataFormProps) {
     />
   )
 }
-
 
 export function UserDataForm({
   mode = 'onboarding',
@@ -168,7 +167,9 @@ export function UserDataForm({
 
           <CardFooter className="mt-6">
             <Button type="submit" className="w-full" disabled={!canSubmit}>
-              {t(submitting ? 'auth.profile.buttonSaving' : LABELS[mode].submit)}
+              {t(
+                submitting ? 'auth.profile.buttonSaving' : LABELS[mode].submit,
+              )}
             </Button>
           </CardFooter>
         </form>
