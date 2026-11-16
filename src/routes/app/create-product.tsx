@@ -18,9 +18,7 @@ interface ProductCreationProps {
 export const Route = createFileRoute('/app/create-product')({
   component: CreateProduct,
 })
-export default function CreateProduct({
-  onCreate,
-}: ProductCreationProps) {
+export default function CreateProduct({ onCreate }: ProductCreationProps) {
   const { t } = useTranslation()
 
   const [name, setName] = useState('')
