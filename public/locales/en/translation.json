@@ -1,7 +1,7 @@
 {
   "language": { "change": "Change language" },
   "nav": {
-    "overview": "Overview",
+    "dashboard": "Dashboard",
     "addPurchase": "Add purchase",
     "updateStock": "Update quantity",
     "room": "Room {{room}}",
@@ -22,8 +22,10 @@
   "auth": {
     "register": "Register",
     "login": "Login",
-    "userDataForm": {
-      "title": "Finish setting up your profile",
+    "accountButton": {
+      "profile": "My profile"
+    },
+    "profile": {
       "description": "Choose a username and tell us where you live.",
       "username": "Username",
       "usernamePlaceholder": "Name Surname",
@@ -31,9 +33,21 @@
       "dormPlaceholder": "Choose your dormitory",
       "roomNumber": "Room number",
       "roomNumberPlaceholder": "e.g. 123A",
-      "button": {
-        "saving": "Saving...",
-        "continue": "Continue"
+      "buttonSaving": "Saving...",
+      "onboarding": {
+        "title": "Finish setting up your profile",
+        "button": {
+          "continue": "Continue"
+        }
+      },
+      "edit": {
+        "title": "Update your profile",
+        "back": "Back to dashboard",
+        "saveError": "An error occured while saving your data. Please try again.",
+        "saved": "Your profile has been successfully updated!",
+        "button": {
+          "save": "Save profile data"
+        }
       }
     }
   },
@@ -53,5 +67,9 @@
       "alt": "Example of shared supplies and expenses"
     },
     "dashboard": "To dashboard"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error"
   }
 }

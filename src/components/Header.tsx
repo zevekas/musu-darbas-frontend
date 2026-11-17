@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react'
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
 import { Button } from '#/components/ui/button.tsx'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
+import { User } from 'lucide-react'
 
 type HeaderProps = {
   /** Header left side content */
@@ -13,6 +14,7 @@ type HeaderProps = {
 }
 
 export function Header({ children, actions }: HeaderProps) {
+  const navigate = useNavigate()
   const { t } = useTranslation()
 
   return (
@@ -45,7 +47,16 @@ export function Header({ children, actions }: HeaderProps) {
                   },
                 },
               }}
-            />
+            >
+              <UserButton.MenuItems>
+                <UserButton.Action
+                  label={t('auth.accountButton.profile')}
+                  labelIcon={<User className="size-4" />}
+                  onClick={() => navigate({ to: '/profile' })}
+                />
+                <UserButton.Action label="manageAccount" />
+              </UserButton.MenuItems>
+            </UserButton>
           </div>
         </Show>
       </div>

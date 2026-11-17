@@ -24,7 +24,7 @@ import { useTranslation } from 'react-i18next'
 export default function AppSidebar() {
   const { t } = useTranslation()
   const mainNav = [
-    { label: t('nav.overview'), icon: LayoutDashboard, to: '/' },
+    { label: t('nav.dashboard'), icon: LayoutDashboard, to: '/app' },
     { label: t('nav.addPurchase'), icon: ShoppingCart, to: '/app' },
     { label: t('nav.updateStock'), icon: Boxes, to: '/app' },
   ] as const
