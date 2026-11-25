@@ -15,6 +15,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SigninRouteImport } from './routes/signin'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAddPurchaseRouteImport } from './routes/app/add-purchase'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const AppAddPurchaseRoute = AppAddPurchaseRouteImport.update({
+  id: '/add-purchase',
+  path: '/add-purchase',
+  getParentRoute: () => AppRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
+  '/app/add-purchase': typeof AppAddPurchaseRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
+  '/app/add-purchase': typeof AppAddPurchaseRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -69,14 +77,30 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
+  '/app/add-purchase': typeof AppAddPurchaseRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/profile' | '/signin' | '/signup' | '/app/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/profile'
+    | '/signin'
+    | '/signup'
+    | '/app/add-purchase'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile' | '/signin' | '/signup' | '/app'
-  id: '__root__' | '/' | '/app' | '/profile' | '/signin' | '/signup' | '/app/'
+  to: '/' | '/profile' | '/signin' | '/signup' | '/app/add-purchase' | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/profile'
+    | '/signin'
+    | '/signup'
+    | '/app/add-purchase'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -131,14 +155,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/app/add-purchase': {
+      id: '/app/add-purchase'
+      path: '/add-purchase'
+      fullPath: '/app/add-purchase'
+      preLoaderRoute: typeof AppAddPurchaseRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
   }
 }
 
 interface AppRouteRouteChildren {
+  AppAddPurchaseRoute: typeof AppAddPurchaseRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppAddPurchaseRoute: AppAddPurchaseRoute,
   AppIndexRoute: AppIndexRoute,
 }
 

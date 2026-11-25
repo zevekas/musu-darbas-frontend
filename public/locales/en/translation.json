@@ -68,6 +68,35 @@
     },
     "dashboard": "To dashboard"
   },
+  "addPurchase": {
+    "back": "Back to dashboard",
+    "items": {
+      "title": "Items",
+      "currencyInfo": "All amounts in euros (€)",
+      "product": "Product",
+      "productPlaceholder": "Enter product name",
+      "quantity": "Quantity",
+      "amount": "Amount (€)",
+      "remove": "Remove item",
+      "add": "Add item",
+      "total": "Total amount"
+    },
+    "details": {
+      "title": "Additional information",
+      "paidBy": "Paid by",
+      "you": "You",
+      "paidByPlaceholder": "Select a user",
+      "purchaseDate": "Purchase date",
+      "space": "Purchase for",
+      "spacePlaceholder": "Select a space",
+      "note": "Note (optional)",
+      "notePlaceholder": "Enter a note"
+    },
+    "button": {
+      "cancel": "Cancel",
+      "save": "Save purchase"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error"
