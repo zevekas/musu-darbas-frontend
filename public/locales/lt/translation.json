@@ -4,6 +4,7 @@
     "dashboard": "Apžvalga",
     "addPurchase": "Pridėti pirkinį",
     "updateStock": "Atnaujinti kiekį",
+    "newProduct": "Naujas produktas",
     "room": "Kambarys {{room}}",
     "header": {
       "help": "Pagalba",
@@ -105,5 +106,37 @@
   "common": {
     "loading": "Kraunama...",
     "error": "Klaida"
+  },
+  "productForm": {
+    "title": "Sukurti prekės tipą",
+    "description": "Įveskite naujo pirkinio informaciją.",
+    "mainInformation": "Pagrindinė informacija",
+    "name": "Pavadinimas",
+    "namePlaceholder": "Prekės pavadinimas",
+    "countingQuestion": "Ar prekė skaičiuojama vienetais?",
+    "countable": "Skaičiuojama",
+    "countableDescription": "Pvz. buteliai, rulonai, vienetai",
+    "notCountable": "Neskaičiuojama",
+    "notCountableDescription": "Pvz. sveriama ar pilstoma prekė",
+    "photo": "Nuotrauka",
+    "photoAlt": "Prekės nuotrauka",
+    "photoOptional": "Nuotrauka (neprivaloma)",
+    "uploadPhoto": "Įkelkite prekės nuotrauką",
+    "removePhoto": "Pašalinti nuotrauką",
+    "cancel": "Atšaukti",
+    "create": "Sukurti prekės tipą",
+    "requiredFields": "* Privalomi laukai",
+    "addToRoom": "Pridėti prekę į kambarį",
+    "quantity": "Kiekis",
+    "quantityHint": "Skaičiuojamai prekei – kiekis. Neskaičiuojamai – būsena (pvz., „Pilna“ arba „Tuščia“).",
+    "unitLabel": "vnt.",
+    "status": "Būsena",
+    "statusOptions": {
+      "FULL": "Pilna",
+      "HALF": "Pusė",
+      "QUARTER": "Ketvirtis",
+      "EMPTY": "Tuščia"
+    },
+    "submitError": "Nepavyko sukurti prekės. Bandykite dar kartą."
   }
 }
