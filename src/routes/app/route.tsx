@@ -52,7 +52,8 @@ function AppLayout() {
       ) : (
         <SidebarProvider>
           <AppSidebar />
-          <SidebarInset className="min-h-svh">
+          {/* min-w-0: let the content shrink next to the sidebar instead of overflowing (truncated text would otherwise set its min width) */}
+          <SidebarInset className="min-h-svh min-w-0">
             <AppHeader />
             <div className="flex-1 p-4">
               <Outlet />

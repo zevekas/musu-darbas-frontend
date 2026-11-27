@@ -7,12 +7,9 @@
     "newProduct": "Naujas prekės tipas",
     "room": "Kambarys {{room}}",
     "header": {
-      "help": "Pagalba",
       "dashboard": "Puslapis"
     },
     "sidebar": {
-      "yourSpaces": "Jūsų erdvės",
-      "rooms": "Kambariai",
       "groupSettings": "Grupės nustatymai"
     },
     "footer": {
@@ -51,9 +48,6 @@
         }
       }
     }
-  },
-  "dash": {
-    "placeholderContent": "Sveiki atvykę į puslapį!"
   },
   "home": {
     "title": "Bendros atsargos ir išlaidos",
@@ -151,6 +145,74 @@
     "created": "Prekės tipas „{{name}}“ sukurtas.",
     "errors": {
       "createFailed": "Nepavyko sukurti prekės tipo. Bandykite dar kartą."
+    }
+  },
+  "dashboard": {
+    "title": "Kambario apžvalga",
+    "status": {
+      "FULL": "Yra",
+      "HALF": "Liko pusė",
+      "QUARTER": "Mažai likę",
+      "EMPTY": "Baigėsi"
+    },
+    "stock": {
+      "title": "Atsargos",
+      "itemCount_one": "{{count}} prekė",
+      "itemCount_few": "{{count}} prekės",
+      "itemCount_many": "{{count}} prekių",
+      "itemCount_other": "{{count}} prekės",
+      "runningOut_one": "{{count}} prekė baigiasi",
+      "runningOut_few": "{{count}} prekės baigiasi",
+      "runningOut_many": "{{count}} prekių baigiasi",
+      "runningOut_other": "{{count}} prekės baigiasi",
+      "searchPlaceholder": "Ieškoti atsargų",
+      "showAll": "Visos atsargos",
+      "showLess": "Rodyti mažiau",
+      "updated": "Atnaujinta {{time}}",
+      "update": "Atnaujinti",
+      "noResults": "Pagal paiešką prekių nerasta.",
+      "empty": "Šiame kambaryje dar nėra atsargų."
+    },
+    "members": {
+      "title": "Nariai",
+      "count_one": "{{count}} narys",
+      "count_few": "{{count}} nariai",
+      "count_many": "{{count}} narių",
+      "count_other": "{{count}} nario",
+      "yourBalance": "Jūsų balansas",
+      "debt": "Skola",
+      "claimable": "Atgautina suma",
+      "settled": "Išlyginta",
+      "youRoom": "Jūs · Kambarys {{room}}",
+      "invite": "Pakviesti narį"
+    },
+    "expenses": {
+      "title": "{{month}} išlaidos",
+      "equalSplit": "po lygiai",
+      "perPerson": "{{amount}}/asm."
+    },
+    "activity": {
+      "title": "Kambario naujienos",
+      "viewAll": "Visa veikla",
+      "empty": "Naujienų kol kas nėra.",
+      "stockUpdated": "{{user}} atnaujino {{product}}: {{from}} → {{to}}",
+      "purchase": "{{user}} nupirko {{description}}",
+      "perPerson": "Po {{amount}} kiekvienam",
+      "stockOnly": "Tik kiekis"
+    },
+    "months": {
+      "january": "Sausio",
+      "february": "Vasario",
+      "march": "Kovo",
+      "april": "Balandžio",
+      "may": "Gegužės",
+      "june": "Birželio",
+      "july": "Liepos",
+      "august": "Rugpjūčio",
+      "september": "Rugsėjo",
+      "october": "Spalio",
+      "november": "Lapkričio",
+      "december": "Gruodžio"
     }
   }
 }

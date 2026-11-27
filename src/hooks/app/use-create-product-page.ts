@@ -2,7 +2,7 @@ import type {
   CreateProductInput,
   ProductStatus,
   ProductType,
-} from '../use-products-TEMP'
+} from '../use-products'
 import { useState } from 'react'
 
 export function useCreateProductPage() {

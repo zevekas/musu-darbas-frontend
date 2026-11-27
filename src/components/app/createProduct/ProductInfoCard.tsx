@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import type { ProductType } from '#/hooks/use-products-TEMP'
+import type { ProductType } from '#/hooks/use-products'
 
 type ProductInfoCardProps = {
   name: string

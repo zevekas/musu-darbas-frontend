@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { CreatePurchaseRequest, PurchaseItem } from '../use-purchases-TEMP'
+import type { CreatePurchaseRequest, PurchaseItem } from '../use-purchases'
 
 export type ItemField = keyof PurchaseItem
 

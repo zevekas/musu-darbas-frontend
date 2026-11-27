@@ -9,8 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { PRODUCT_STATUSES } from '#/hooks/use-products-TEMP'
-import type { ProductStatus, ProductType } from '#/hooks/use-products-TEMP'
+import { PRODUCT_STATUSES } from '#/hooks/use-products'
+import type { ProductStatus, ProductType } from '#/hooks/use-products'
 
 type AddToRoomCardProps = {
   addToRoom: boolean
