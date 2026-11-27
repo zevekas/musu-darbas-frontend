@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useMatchRoute } from '@tanstack/react-router'
 import {
   Sidebar,
   SidebarHeader,
@@ -7,15 +7,13 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarGroupLabel,
   SidebarFooter,
+  useSidebar,
 } from '../ui/sidebar'
 import {
   Boxes,
   PackagePlus,
-  DoorOpen,
   LayoutDashboard,
-  Plus,
   Settings,
   ShoppingCart,
 } from 'lucide-react'
@@ -23,6 +21,14 @@ import { useTranslation } from 'react-i18next'
 
 export default function AppSidebar() {
   const { t } = useTranslation()
+  const matchRoute = useMatchRoute()
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  // On mobile the sidebar is a sheet over the page, close it after navigating
+  function closeOnMobile() {
+    if (isMobile) setOpenMobile(false)
+  }
+
   const mainNav = [
     { label: t('nav.dashboard'), icon: LayoutDashboard, to: '/app' },
     {
@@ -35,13 +41,8 @@ export default function AppSidebar() {
       icon: PackagePlus,
       to: '/app/create-product',
     },
-    { label: t('nav.updateStock'), icon: Boxes, to: '/app' },
-  ] as const
-
-  const spacesNav = [
-    // { label: 'Blokas B', icon: Building2, to: '/app' },
-    { label: t('nav.room', { room: 204 }), icon: DoorOpen, to: '/app' },
-    { label: t('nav.sidebar.rooms'), icon: Plus, to: '/app' },
+    // TODO: enable once the update stock page exists
+    { label: t('nav.updateStock'), icon: Boxes, to: null },
   ] as const
 
   return (
@@ -61,28 +62,26 @@ export default function AppSidebar() {
           <SidebarMenu>
             {mainNav.map((item) => (
               <SidebarMenuItem key={item.label}>
-                <SidebarMenuButton asChild>
-                  <Link to={item.to}>
+                {item.to ? (
+                  <SidebarMenuButton
+                    asChild
+                    isActive={!!matchRoute({ to: item.to })}
+                  >
+                    <Link
+                      to={item.to}
+                      activeOptions={{ exact: true }}
+                      onClick={closeOnMobile}
+                    >
+                      <item.icon />
+                      <span>{item.label}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                ) : (
+                  <SidebarMenuButton disabled>
                     <item.icon />
                     <span>{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel>{t('nav.sidebar.yourSpaces')}</SidebarGroupLabel>
-          <SidebarMenu>
-            {spacesNav.map((item) => (
-              <SidebarMenuItem key={item.label}>
-                <SidebarMenuButton asChild>
-                  <Link to={item.to}>
-                    <item.icon />
-                    <span>{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                  </SidebarMenuButton>
+                )}
               </SidebarMenuItem>
             ))}
           </SidebarMenu>
@@ -92,8 +91,8 @@ export default function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild>
-              <Link to="/app">
+            <SidebarMenuButton asChild disabled>
+              <Link to="/app" onClick={closeOnMobile}>
                 <Settings />
                 <span>{t('nav.sidebar.groupSettings')}</span>
               </Link>

@@ -1,42 +1,39 @@
 {
   "language": { "change": "Change language" },
   "nav": {
-    "dashboard": "Dashboard",
+    "dashboard": "Overview",
     "addPurchase": "Add purchase",
-    "updateStock": "Update quantity",
+    "updateStock": "Update stock",
     "newProduct": "New product type",
     "room": "Room {{room}}",
     "header": {
-      "help": "Help",
       "dashboard": "Dashboard"
     },
     "sidebar": {
-      "yourSpaces": "Your spaces",
-      "rooms": "Rooms",
       "groupSettings": "Group settings"
     },
     "footer": {
-      "privacyPolicy": "Privacy Policy",
-      "termsAndConditions": "Terms & conditions"
+      "privacyPolicy": "Privacy policy",
+      "termsAndConditions": "Terms"
     }
   },
   "auth": {
-    "register": "Register",
-    "login": "Login",
+    "register": "Sign up",
+    "login": "Log in",
     "accountButton": {
       "profile": "My profile"
     },
     "profile": {
-      "description": "Choose a username and tell us where you live.",
+      "description": "Choose a username and enter your dorm and room.",
       "username": "Username",
-      "usernamePlaceholder": "Name Surname",
-      "dorm": "Dormitory",
-      "dormPlaceholder": "Choose your dormitory",
+      "usernamePlaceholder": "John Smith",
+      "dorm": "Dorm",
+      "dormPlaceholder": "Select a dorm",
       "roomNumber": "Room number",
       "roomNumberPlaceholder": "e.g. 123A",
       "buttonSaving": "Saving...",
       "onboarding": {
-        "title": "Finish setting up your profile",
+        "title": "Finish setting up your account",
         "button": {
           "continue": "Continue"
         }
@@ -44,20 +41,17 @@
       "edit": {
         "title": "Update your profile",
         "back": "Back to dashboard",
-        "saveError": "An error occured while saving your data. Please try again.",
-        "saved": "Your profile has been successfully updated!",
+        "saveError": "Something went wrong while saving your profile. Please try again.",
+        "saved": "Your profile was updated and saved!",
         "button": {
-          "save": "Save profile data"
+          "save": "Save changes"
         }
       }
     }
   },
-  "dash": {
-    "placeholderContent": "Welcome to your dashboard!"
-  },
   "home": {
     "title": "Shared supplies and expenses",
-    "description": "Track supplies, record purchases and split expenses",
+    "description": "Track supplies, record purchases and split costs",
     "steps": {
       "title": "How to get started",
       "createAccount": "Create an account",
@@ -67,7 +61,7 @@
     "demo": {
       "alt": "Example of shared supplies and expenses"
     },
-    "dashboard": "To dashboard"
+    "dashboard": "Go to dashboard"
   },
   "addPurchase": {
     "back": "Back to dashboard",
@@ -151,6 +145,68 @@
     "created": "Product type “{{name}}” created.",
     "errors": {
       "createFailed": "Couldn’t create the product type. Please try again."
+    }
+  },
+  "dashboard": {
+    "title": "Room overview",
+    "status": {
+      "FULL": "In stock",
+      "HALF": "Half left",
+      "QUARTER": "Running low",
+      "EMPTY": "Out of stock"
+    },
+    "stock": {
+      "title": "Supplies",
+      "itemCount_one": "{{count}} item",
+      "itemCount_other": "{{count}} items",
+      "runningOut_one": "{{count}} item running out",
+      "runningOut_other": "{{count}} items running out",
+      "searchPlaceholder": "Search supplies",
+      "showAll": "All supplies",
+      "showLess": "Show less",
+      "updated": "Updated {{time}}",
+      "update": "Update",
+      "noResults": "No items match your search.",
+      "empty": "This room has no supplies yet."
+    },
+    "members": {
+      "title": "Members",
+      "count_one": "{{count}} member",
+      "count_other": "{{count}} members",
+      "yourBalance": "Your balance",
+      "debt": "Owed",
+      "claimable": "To claim",
+      "settled": "Settled",
+      "youRoom": "You · Room {{room}}",
+      "invite": "Invite member"
+    },
+    "expenses": {
+      "title": "{{month}} expenses",
+      "equalSplit": "split equally",
+      "perPerson": "{{amount}}/person"
+    },
+    "activity": {
+      "title": "Room updates",
+      "viewAll": "All activity",
+      "empty": "No updates yet.",
+      "stockUpdated": "{{user}} updated {{product}}: {{from}} → {{to}}",
+      "purchase": "{{user}} bought {{description}}",
+      "perPerson": "{{amount}} each",
+      "stockOnly": "Quantity only"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
     }
   }
 }

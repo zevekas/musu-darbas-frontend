@@ -8,7 +8,7 @@ import type {
   ItemField,
   PurchaseItemDraft,
 } from '#/hooks/app/use-add-purchase-page'
-import type { Product } from '#/hooks/use-products-TEMP'
+import type { Product } from '#/hooks/use-products'
 import { Link } from '@tanstack/react-router'
 
 type PurchaseItemsCardProps = {

@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import type { RoomMember } from '#/hooks/use-room-members-TEMP'
+import type { RoomMember } from '#/hooks/use-room-members'
 
 type PurchaseDetailsCardProps = {
   members: RoomMember[] | undefined

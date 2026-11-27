@@ -11,16 +11,22 @@ type HeaderProps = {
   children?: ReactNode
   /** Header right side content (before auth) */
   actions?: ReactNode
+  /** Show the "Dashboard" button for signed-in users (redundant inside the app) */
+  showDashboardLink?: boolean
 }
 
-export function Header({ children, actions }: HeaderProps) {
+export function Header({
+  children,
+  actions,
+  showDashboardLink = true,
+}: HeaderProps) {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
   return (
-    <header className="sticky top-0 border-b p-4 flex justify-between items-center bg-background">
-      <div className="flex items-center gap-3">{children}</div>
-      <div className="flex items-center gap-2.5">
+    <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b bg-background p-4">
+      <div className="flex min-w-0 flex-1 items-center gap-3">{children}</div>
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2.5">
         {actions}
         <LanguageSwitcher />
         <Show when="signed-out">
@@ -35,9 +41,11 @@ export function Header({ children, actions }: HeaderProps) {
         </Show>
         <Show when="signed-in">
           <div className="flex items-center gap-2.5">
-            <Button variant={'outline'}>
-              <Link to="/app">{t('nav.header.dashboard')}</Link>
-            </Button>
+            {showDashboardLink && (
+              <Button variant={'outline'} asChild>
+                <Link to="/app">{t('nav.header.dashboard')}</Link>
+              </Button>
+            )}
             <UserButton
               appearance={{
                 elements: {
