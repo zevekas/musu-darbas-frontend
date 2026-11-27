@@ -74,9 +74,9 @@
       "title": "Prekės",
       "currencyInfo": "Visos sumos eurais (€)",
       "product": "Prekė",
-      "productPlaceholder": "Įveskite prekės pavadinimą",
+      "productPlaceholder": "Pasirinkite prekę",
       "quantity": "Kiekis",
-      "amount": "Suma (€)",
+      "amount": "Sumokėta (€)",
       "remove": "Pašalinti prekę",
       "add": "Pridėti prekę",
       "total": "Bendra suma"
@@ -87,15 +87,20 @@
       "you": "Jūs",
       "paidByPlaceholder": "Pasirinkite naudotoją",
       "purchaseDate": "Pirkinio data",
-      "space": "Kam skirtas pirkinys",
-      "spacePlaceholder": "Pasirinkite erdvę",
       "note": "Pastaba (neprivaloma)",
       "notePlaceholder": "Įveskite pastabą"
     },
     "button": {
       "cancel": "Atšaukti",
-      "save": "Išsaugoti pirkinį"
-    }
+      "save": "Išsaugoti pirkinį",
+      "saving": "Saugoma..."
+    },
+    "errors": {
+      "saveFailed": "Pirkinio išsaugojimas nepavyko. Bandykite dar kartą.",
+      "loadProducts": "Nepavyko įkelti prekių. Atnaujinkite puslapį.",
+      "loadMembers": "Nepavyko įkelti kambario narių. Atnaujinkite puslapį."
+    },
+    "saved": "Pirkinys išsaugotas."
   },
   "common": {
     "loading": "Kraunama...",
