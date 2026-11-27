@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { CreatePurchaseRequest, PurchaseItem } from './use-purchases-TEMP'
+import type { CreatePurchaseRequest, PurchaseItem } from '../use-purchases-TEMP'
 
 export type ItemField = keyof PurchaseItem
 
@@ -9,14 +9,14 @@ const today = () => new Date().toLocaleDateString('sv-SE')
 
 const emptyItem = (id: number): PurchaseItemDraft => ({
   id,
-  roomProductId: '',
+  productId: '',
   quantity: '',
   lineTotal: '',
 })
 
 const roundMoney = (value: number) => Math.round(value * 100) / 100
 
-export function useAddPurchase(defaultPaidBy = '') {
+export function useAddPurchasePage(defaultPaidBy = '') {
   const [items, setItems] = useState<PurchaseItemDraft[]>([emptyItem(1)])
   const [selectedPaidBy, setPaidBy] = useState('')
   const [purchaseDate, setPurchaseDate] = useState(today)
@@ -52,7 +52,7 @@ export function useAddPurchase(defaultPaidBy = '') {
     items.length > 0 &&
     items.every(
       (item) =>
-        item.roomProductId !== '' &&
+        item.productId !== '' &&
         Number(item.quantity) >= 1 &&
         Number.isInteger(Number(item.quantity)) &&
         Number(item.lineTotal) >= 0.01,
@@ -67,7 +67,7 @@ export function useAddPurchase(defaultPaidBy = '') {
       purchaseDate,
       note: note.trim() || undefined,
       items: items.map((item) => ({
-        roomProductId: item.roomProductId,
+        productId: item.productId,
         quantity: Number(item.quantity),
         lineTotal: roundMoney(Number(item.lineTotal)),
       })),

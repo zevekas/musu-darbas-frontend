@@ -4,8 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { PurchaseItemRow } from './PurchaseItemRow'
-import type { ItemField, PurchaseItemDraft } from '#/hooks/use-add-purchase'
-import type { Product } from '#/hooks/use-purchases-TEMP'
+import type {
+  ItemField,
+  PurchaseItemDraft,
+} from '#/hooks/app/use-add-purchase-page'
+import type { Product } from '#/hooks/use-products-TEMP'
+import { Link } from '@tanstack/react-router'
 
 type PurchaseItemsCardProps = {
   items: PurchaseItemDraft[]
@@ -33,8 +37,8 @@ export function PurchaseItemsCard({
   function availableProducts(item: PurchaseItemDraft) {
     return products.filter(
       (product) =>
-        product.id === item.roomProductId ||
-        !items.some((other) => other.roomProductId === product.id),
+        product.id === item.productId ||
+        !items.some((other) => other.productId === product.id),
     )
   }
 
@@ -95,6 +99,16 @@ export function PurchaseItemsCard({
             </span>
           </div>
         </div>
+
+        <p className="text-xs text-muted-foreground">
+          {t('addPurchase.items.missingProduct')}{' '}
+          <Link
+            to="/app/create-product"
+            className="font-medium text-primary hover:underline"
+          >
+            {t('addPurchase.items.createProduct')}
+          </Link>
+        </p>
       </CardContent>
     </Card>
   )

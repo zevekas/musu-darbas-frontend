@@ -4,6 +4,7 @@
     "dashboard": "Apžvalga",
     "addPurchase": "Pridėti pirkinį",
     "updateStock": "Atnaujinti kiekį",
+    "newProduct": "Naujas prekės tipas",
     "room": "Kambarys {{room}}",
     "header": {
       "help": "Pagalba",
@@ -79,7 +80,9 @@
       "amount": "Sumokėta (€)",
       "remove": "Pašalinti prekę",
       "add": "Pridėti prekę",
-      "total": "Bendra suma"
+      "total": "Bendra suma",
+      "missingProduct": "Prekės nėra sąraše?",
+      "createProduct": "Sukurkite naują prekės tipą"
     },
     "details": {
       "title": "Papildoma informacija",
@@ -105,5 +108,49 @@
   "common": {
     "loading": "Kraunama...",
     "error": "Klaida"
+  },
+  "createProduct": {
+    "back": "Grįžti į pirkinį",
+    "title": "Sukurti prekės tipą",
+    "description": "Aprašykite naują prekę. Jei reikia, iš karto pridėkite ją į kambarį.",
+    "info": {
+      "title": "Pagrindinė informacija",
+      "name": "Pavadinimas",
+      "namePlaceholder": "Pvz. Indų ploviklis",
+      "countingQuestion": "Ar prekė skaičiuojama vienetais?",
+      "countable": "Skaičiuojama",
+      "countableDescription": "Pvz. buteliai, rulonai, vienetai",
+      "notCountable": "Neskaičiuojama",
+      "notCountableDescription": "Pvz. sveriama ar pilstoma prekė"
+    },
+    "photo": {
+      "title": "Nuotrauka",
+      "optional": "Nuotrauka (neprivaloma)",
+      "upload": "Įkelkite prekės nuotrauką",
+      "alt": "Prekės nuotrauka",
+      "remove": "Pašalinti nuotrauką"
+    },
+    "room": {
+      "addToRoom": "Pridėti prekę į kambarį",
+      "quantity": "Kiekis",
+      "status": "Būsena",
+      "hint": "Skaičiuojamai prekei – kiekis. Neskaičiuojamai – būsena (pvz., „Pilna“ arba „Tuščia“)."
+    },
+    "statusOptions": {
+      "FULL": "Pilna",
+      "HALF": "Pusė",
+      "QUARTER": "Ketvirtis",
+      "EMPTY": "Tuščia"
+    },
+    "button": {
+      "cancel": "Atšaukti",
+      "create": "Sukurti prekės tipą",
+      "creating": "Kuriama..."
+    },
+    "requiredFields": "* Privalomi laukai",
+    "created": "Prekės tipas „{{name}}“ sukurtas.",
+    "errors": {
+      "createFailed": "Nepavyko sukurti prekės tipo. Bandykite dar kartą."
+    }
   }
 }

@@ -1,12 +1,7 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-
-export type Product = {
-  id: string
-  name: string
-}
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export type PurchaseItem = {
-  roomProductId: string
+  productId: string
   quantity: number
   lineTotal: number // total for the whole line
 }
@@ -23,29 +18,13 @@ export type CreatePurchaseResponse = {
   total: number
 }
 
-export function useProducts() {
-  return useQuery({
-    queryKey: ['products'],
-    queryFn: async (): Promise<Product[]> => {
-      // TODO backend: return api.get('/app/products').json<Product[]>()
-      return [
-        { id: 'p1', name: 'Tualetinis popierius' },
-        { id: 'p2', name: 'Kiaušiniai' },
-        { id: 'p3', name: 'Indų ploviklis' },
-        { id: 'p4', name: 'Pienas' },
-        { id: 'p5', name: 'Makaronai' },
-      ]
-    },
-  })
-}
-
 export function useCreatePurchase() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async (request: CreatePurchaseRequest) => {
+    // `_request` until the backend call uses it (rename back to `request` then)
+    mutationFn: async (_request: CreatePurchaseRequest) => {
       // TODO backend: return api.post('/app/purchases', { json: request })
-      console.log('[mock] POST /app/purchases', request)
     },
 
     onSuccess: () => {

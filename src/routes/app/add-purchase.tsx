@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { useAddPurchase } from '#/hooks/use-add-purchase'
+import { useAddPurchasePage } from '#/hooks/app/use-add-purchase-page'
 import type { FormEvent } from 'react'
 import { Button } from '@/components/ui/button'
 import { Check, ArrowLeft } from 'lucide-react'
 import { useRoomMembers } from '#/hooks/use-room-members-TEMP'
-import { useCreatePurchase, useProducts } from '#/hooks/use-purchases-TEMP'
+import { useCreatePurchase } from '#/hooks/use-purchases-TEMP'
+import { useProducts } from '#/hooks/use-products-TEMP'
 import { PurchaseDetailsCard } from '#/components/app/addPurchase/PurchaseDetailsCard'
 import { PurchaseItemsCard } from '#/components/app/addPurchase/PurchaseItemsCard'
 
@@ -38,7 +39,7 @@ function AddPurchase() {
     isValid,
     toRequest,
     reset,
-  } = useAddPurchase(currentUser?.userId)
+  } = useAddPurchasePage(currentUser?.userId)
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
