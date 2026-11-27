@@ -10,8 +10,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import type { ItemField, PurchaseItemDraft } from '#/hooks/use-add-purchase'
-import type { Product } from '#/hooks/use-purchases-TEMP'
+import type {
+  ItemField,
+  PurchaseItemDraft,
+} from '#/hooks/app/use-add-purchase-page'
+import type { Product } from '#/hooks/use-products-TEMP'
 
 type PurchaseItemRowProps = {
   item: PurchaseItemDraft
@@ -32,7 +35,7 @@ export function PurchaseItemRow({
 }: PurchaseItemRowProps) {
   const { t } = useTranslation()
 
-  const selectedName = products.find((p) => p.id === item.roomProductId)?.name
+  const selectedName = products.find((p) => p.id === item.productId)?.name
 
   return (
     <div className="grid grid-cols-2 gap-3 border p-3 sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)_2.25rem] sm:items-end sm:gap-4 sm:border-0 sm:p-0">
@@ -56,8 +59,8 @@ export function PurchaseItemRow({
         </div>
 
         <Select
-          value={item.roomProductId}
-          onValueChange={(value) => onChange('roomProductId', value)}
+          value={item.productId}
+          onValueChange={(value) => onChange('productId', value)}
           disabled={productsLoading}
         >
           <SelectTrigger id={`product-${item.id}`} className="w-full">

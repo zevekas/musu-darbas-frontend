@@ -1,260 +1,119 @@
-import { useEffect, useState } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
 import type { FormEvent } from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { PRODUCT_STATUSES, useProducts } from '@/hooks/use-new-product'
-import type { ProductStatus } from '@/hooks/use-new-product'
+import { ArrowLeft, Check } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useCreateProduct } from '#/hooks/use-products-TEMP'
+import { useCreateProductPage } from '#/hooks/app/use-create-product-page'
+import { ProductInfoCard } from '#/components/app/createProduct/ProductInfoCard'
+import { PhotoCard } from '#/components/app/createProduct/PhotoCard'
+import { AddToRoomCard } from '#/components/app/createProduct/AddToRoomCard'
 
 export const Route = createFileRoute('/app/create-product')({
   component: CreateProduct,
 })
 
-export default function CreateProduct() {
+function CreateProduct() {
   const { t } = useTranslation()
-  const { createProduct } = useProducts()
+  const createProduct = useCreateProduct()
 
-  const [name, setName] = useState('')
-  const [isCountable, setIsCountable] = useState(true)
-  const [photo, setPhoto] = useState<File | null>(null)
-  const [preview, setPreview] = useState('')
-  const [addToRoom, setAddToRoom] = useState(false)
-  const [quantity, setQuantity] = useState('1')
-  const [status, setStatus] = useState<ProductStatus>('FULL')
+  const {
+    name,
+    setName,
+    type,
+    setType,
+    addToRoom,
+    setAddToRoom,
+    quantity,
+    setQuantity,
+    status,
+    setStatus,
+    image,
+    setImage,
+    isValid,
+    toRequest,
+    reset,
+  } = useCreateProductPage()
 
-  useEffect(() => {
-    if (!photo) {
-      setPreview('')
-      return
-    }
-
-    const url = URL.createObjectURL(photo)
-    setPreview(url)
-
-    return () => URL.revokeObjectURL(url)
-  }, [photo])
-
-  const resetForm = () => {
-    setName('')
-    setIsCountable(true)
-    setPhoto(null)
-    setAddToRoom(false)
-    setQuantity('1')
-    setStatus('FULL')
-  }
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    createProduct.mutate(
-      {
-        name: name.trim(),
-        type: isCountable ? 'QUANTITY' : 'STATUS',
-        status: addToRoom && !isCountable ? status : null,
-        amount: addToRoom && isCountable ? Number(quantity) : null,
-        photo,
-      },
-      { onSuccess: resetForm },
-    )
+    if (!isValid || createProduct.isPending) return
+
+    createProduct.mutate(toRequest(), { onSuccess: reset })
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold">{t('productForm.title')}</h2>
-        <p className="text-muted-foreground mt-2">
-          {t('productForm.description')}
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Header */}
+      <div className="space-y-2">
+        <Link
+          to="/app/add-purchase"
+          className="inline-flex items-center gap-2 text-[13px] leading-none font-medium text-muted-foreground hover:text-foreground uppercase"
+        >
+          <ArrowLeft className="size-3.5 shrink-0" />
+          <span>{t('createProduct.back')}</span>
+        </Link>
+
+        <h1 className="text-2xl font-medium">{t('createProduct.title')}</h1>
+        <p className="text-sm text-muted-foreground">
+          {t('createProduct.description')}
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-8">
-        <section className="space-y-4">
-          <h3 className="text-lg font-medium">
-            {t('productForm.mainInformation')}
-          </h3>
+      <ProductInfoCard
+        name={name}
+        onNameChange={setName}
+        type={type}
+        onTypeChange={setType}
+      />
 
-          <div className="space-y-2">
-            <label htmlFor="product-name">{t('productForm.name')} *</label>
-            <input
-              id="product-name"
-              className="w-full rounded-md border p-3"
-              type="text"
-              placeholder={t('productForm.namePlaceholder')}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+      <PhotoCard image={image} onImageChange={setImage} />
 
-          <div className="space-y-2">
-            <p>{t('productForm.countingQuestion')} *</p>
+      <AddToRoomCard
+        addToRoom={addToRoom}
+        onAddToRoomChange={setAddToRoom}
+        type={type}
+        quantity={quantity}
+        onQuantityChange={setQuantity}
+        status={status}
+        onStatusChange={setStatus}
+      />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <label
-                className={`flex cursor-pointer items-start gap-3 rounded-md border p-3 ${
-                  isCountable ? 'border-primary bg-primary/10' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="counting-method"
-                  checked={isCountable}
-                  onChange={() => setIsCountable(true)}
-                />
-                <span>
-                  <strong className="block">
-                    {t('productForm.countable')}
-                  </strong>
-                  <small className="text-muted-foreground">
-                    {t('productForm.countableDescription')}
-                  </small>
-                </span>
-              </label>
+      {/* Result messages */}
+      {createProduct.isError && (
+        <p role="alert" className="text-sm text-destructive">
+          {t('createProduct.errors.createFailed')}
+        </p>
+      )}
 
-              <label
-                className={`flex cursor-pointer items-start gap-3 rounded-md border p-3 ${
-                  !isCountable ? 'border-primary bg-primary/10' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="counting-method"
-                  checked={!isCountable}
-                  onChange={() => setIsCountable(false)}
-                />
-                <span>
-                  <strong className="block">
-                    {t('productForm.notCountable')}
-                  </strong>
-                  <small className="text-muted-foreground">
-                    {t('productForm.notCountableDescription')}
-                  </small>
-                </span>
-              </label>
-            </div>
-          </div>
-        </section>
+      {createProduct.isSuccess && (
+        <p role="status" className="text-sm text-green-600">
+          {t('createProduct.created', { name: createProduct.data.name })}
+        </p>
+      )}
 
-        <section className="space-y-4">
-          <h3 className="text-lg font-medium">{t('productForm.photo')}</h3>
+      {/* Mobile: full-width buttons, Create on top. Desktop: Cancel left, Create right. */}
+      <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <Button variant="outline" asChild className="w-full sm:w-auto">
+          <Link to="/app/add-purchase">{t('createProduct.button.cancel')}</Link>
+        </Button>
 
-          <label className="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-6">
-            {preview ? (
-              <img
-                src={preview}
-                alt={t('productForm.photoAlt')}
-                className="max-h-48 rounded-md object-contain"
-              />
-            ) : (
-              <>
-                <span className="text-3xl">＋</span>
-                <strong>{t('productForm.photoOptional')}</strong>
-                <small>{t('productForm.uploadPhoto')}</small>
-              </>
-            )}
+        <Button
+          type="submit"
+          disabled={!isValid || createProduct.isPending}
+          className="w-full sm:w-auto"
+        >
+          <Check />
+          {createProduct.isPending
+            ? t('createProduct.button.creating')
+            : t('createProduct.button.create')}
+        </Button>
+      </div>
 
-            <input
-              type="file"
-              accept="image/*"
-              disabled
-              hidden
-              onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
-            />
-          </label>
-
-          {photo && (
-            <button
-              type="button"
-              className="text-sm text-destructive"
-              onClick={() => setPhoto(null)}
-            >
-              {t('productForm.removePhoto')}
-            </button>
-          )}
-        </section>
-
-        <section className="rounded-xl border p-4 space-y-4">
-          <label className="flex cursor-pointer items-center gap-3">
-            <input
-              type="checkbox"
-              checked={addToRoom}
-              onChange={(e) => setAddToRoom(e.target.checked)}
-            />
-            <span>{t('productForm.addToRoom')}</span>
-          </label>
-
-          {addToRoom && (
-            <div className="space-y-2 border-t pt-4">
-              {isCountable ? (
-                <>
-                  <label htmlFor="product-quantity">
-                    {t('productForm.quantity')} *
-                  </label>
-                  <input
-                    id="product-quantity"
-                    type="number"
-                    min={1}
-                    className="w-full rounded-md border p-3 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                    onWheel={(e) => e.currentTarget.blur()}
-                    required
-                  />
-                </>
-              ) : (
-                <>
-                  <label htmlFor="product-status">
-                    {t('productForm.status')} *
-                  </label>
-                  <select
-                    id="product-status"
-                    className="w-full rounded-md border p-3"
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value as ProductStatus)}
-                  >
-                    {PRODUCT_STATUSES.map((s) => (
-                      <option key={s} value={s}>
-                        {t(`productForm.statusOptions.${s}`)}
-                      </option>
-                    ))}
-                  </select>
-                </>
-              )}
-
-              <small className="text-muted-foreground">
-                {t('productForm.quantityHint')}
-              </small>
-            </div>
-          )}
-        </section>
-
-        {createProduct.isError && (
-          <p className="text-sm text-destructive">
-            {t('productForm.submitError')}
-          </p>
-        )}
-
-        <div className="flex justify-end gap-3">
-          <button
-            type="button"
-            className="rounded-md border px-5 py-2"
-            onClick={resetForm}
-          >
-            {t('productForm.cancel')}
-          </button>
-
-          <button
-            type="submit"
-            disabled={createProduct.isPending}
-            className="rounded-md bg-primary px-5 py-2 text-primary-foreground disabled:opacity-50"
-          >
-            {t('productForm.create')}
-          </button>
-        </div>
-
-        <small className="text-muted-foreground">
-          {t('productForm.requiredFields')}
-        </small>
-      </form>
-    </div>
+      <p className="text-xs text-muted-foreground">
+        {t('createProduct.requiredFields')}
+      </p>
+    </form>
   )
 }

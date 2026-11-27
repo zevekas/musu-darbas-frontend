@@ -12,7 +12,7 @@ import {
 } from '../ui/sidebar'
 import {
   Boxes,
-  // Building2,
+  PackagePlus,
   DoorOpen,
   LayoutDashboard,
   Plus,
@@ -29,6 +29,11 @@ export default function AppSidebar() {
       label: t('nav.addPurchase'),
       icon: ShoppingCart,
       to: '/app/add-purchase',
+    },
+    {
+      label: t('nav.newProduct'),
+      icon: PackagePlus,
+      to: '/app/create-product',
     },
     { label: t('nav.updateStock'), icon: Boxes, to: '/app' },
   ] as const

@@ -4,7 +4,7 @@
     "dashboard": "Dashboard",
     "addPurchase": "Add purchase",
     "updateStock": "Update quantity",
-    "newProduct": "New product",
+    "newProduct": "New product type",
     "room": "Room {{room}}",
     "header": {
       "help": "Help",
@@ -80,7 +80,9 @@
       "amount": "Paid (€)",
       "remove": "Remove item",
       "add": "Add item",
-      "total": "Total amount"
+      "total": "Total amount",
+      "missingProduct": "Product not in the list?",
+      "createProduct": "Create a new product type"
     },
     "details": {
       "title": "Additional information",
@@ -107,36 +109,48 @@
     "loading": "Loading...",
     "error": "Error"
   },
-  "productForm": {
+  "createProduct": {
+    "back": "Back to purchase",
     "title": "Create product type",
-    "description": "Enter the information about the new purchase.",
-    "mainInformation": "Main information",
-    "name": "Name",
-    "namePlaceholder": "Product name",
-    "countingQuestion": "Is the product counted by units?",
-    "countable": "Countable",
-    "countableDescription": "E.g. bottles, rolls, individual items",
-    "notCountable": "Not countable",
-    "notCountableDescription": "E.g. products sold by weight or volume",
-    "photo": "Photo",
-    "photoAlt": "Product photo",
-    "photoOptional": "Photo (optional)",
-    "uploadPhoto": "Upload a product photo",
-    "removePhoto": "Remove photo",
-    "cancel": "Cancel",
-    "create": "Create product type",
-    "requiredFields": "* Required fields",
-    "addToRoom": "Add item to room",
-    "quantity": "Quantity",
-    "quantityHint": "For countable items – quantity. For uncountable items – status (e.g., \"Full\" or \"Empty\").",
-    "unitLabel": "pcs",
-    "status": "Status",
+    "description": "Describe a new product. If needed, add it to your room right away.",
+    "info": {
+      "title": "Main information",
+      "name": "Name",
+      "namePlaceholder": "E.g. Dish soap",
+      "countingQuestion": "Is the product counted in units?",
+      "countable": "Countable",
+      "countableDescription": "E.g. bottles, rolls, individual items",
+      "notCountable": "Not countable",
+      "notCountableDescription": "E.g. sold by weight or volume"
+    },
+    "photo": {
+      "title": "Photo",
+      "optional": "Photo (optional)",
+      "upload": "Upload a product photo",
+      "alt": "Product photo",
+      "remove": "Remove photo"
+    },
+    "room": {
+      "addToRoom": "Add item to room",
+      "quantity": "Quantity",
+      "status": "Status",
+      "hint": "Countable products use a quantity, uncountable ones a status (e.g. Full or Empty)."
+    },
     "statusOptions": {
       "FULL": "Full",
       "HALF": "Half",
       "QUARTER": "Quarter",
       "EMPTY": "Empty"
     },
-    "submitError": "Failed to create the product. Please try again."
+    "button": {
+      "cancel": "Cancel",
+      "create": "Create product type",
+      "creating": "Creating..."
+    },
+    "requiredFields": "* Required fields",
+    "created": "Product type “{{name}}” created.",
+    "errors": {
+      "createFailed": "Couldn’t create the product type. Please try again."
+    }
   }
 }
