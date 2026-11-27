@@ -68,6 +68,40 @@
     },
     "dashboard": "Eiti į puslapį"
   },
+  "addPurchase": {
+    "back": "Grįžti į apžvalgą",
+    "items": {
+      "title": "Prekės",
+      "currencyInfo": "Visos sumos eurais (€)",
+      "product": "Prekė",
+      "productPlaceholder": "Pasirinkite prekę",
+      "quantity": "Kiekis",
+      "amount": "Sumokėta (€)",
+      "remove": "Pašalinti prekę",
+      "add": "Pridėti prekę",
+      "total": "Bendra suma"
+    },
+    "details": {
+      "title": "Papildoma informacija",
+      "paidBy": "Apmokėjo",
+      "you": "Jūs",
+      "paidByPlaceholder": "Pasirinkite naudotoją",
+      "purchaseDate": "Pirkinio data",
+      "note": "Pastaba (neprivaloma)",
+      "notePlaceholder": "Įveskite pastabą"
+    },
+    "button": {
+      "cancel": "Atšaukti",
+      "save": "Išsaugoti pirkinį",
+      "saving": "Saugoma..."
+    },
+    "errors": {
+      "saveFailed": "Pirkinio išsaugojimas nepavyko. Bandykite dar kartą.",
+      "loadProducts": "Nepavyko įkelti prekių. Atnaujinkite puslapį.",
+      "loadMembers": "Nepavyko įkelti kambario narių. Atnaujinkite puslapį."
+    },
+    "saved": "Pirkinys išsaugotas."
+  },
   "common": {
     "loading": "Kraunama...",
     "error": "Klaida"

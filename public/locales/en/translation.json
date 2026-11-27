@@ -68,6 +68,40 @@
     },
     "dashboard": "To dashboard"
   },
+  "addPurchase": {
+    "back": "Back to dashboard",
+    "items": {
+      "title": "Items",
+      "currencyInfo": "All amounts in euros (€)",
+      "product": "Product",
+      "productPlaceholder": "Select product",
+      "quantity": "Quantity",
+      "amount": "Paid (€)",
+      "remove": "Remove item",
+      "add": "Add item",
+      "total": "Total amount"
+    },
+    "details": {
+      "title": "Additional information",
+      "paidBy": "Paid by",
+      "you": "You",
+      "paidByPlaceholder": "Select a user",
+      "purchaseDate": "Purchase date",
+      "note": "Note (optional)",
+      "notePlaceholder": "Enter a note"
+    },
+    "button": {
+      "cancel": "Cancel",
+      "save": "Save purchase",
+      "saving": "Saving..."
+    },
+    "errors": {
+      "saveFailed": "Purchase saving failed. Please try again.",
+      "loadProducts": "Couldn’t load products. Refresh the page.",
+      "loadMembers": "Couldn’t load room members. Refresh the page."
+    },
+    "saved": "Purchase saved."
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error"
